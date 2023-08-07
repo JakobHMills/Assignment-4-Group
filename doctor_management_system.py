@@ -44,7 +44,7 @@ class Doctor:
         self.room_number = new_room_number
 
     def __str__(self):
-        return str(self.doctor_id) + "_" + self.name + "_" + self.specialization + "_" + self.working_time + "_" + self.qualification + "_" + str(self.room_number)
+        return self.doctor_id + "_" + self.name + "_" + self.specialization + "_" + self.working_time + "_" + self.qualification + "_" + self.room_number
     
 class DoctorManager:
     def __init__(self):
