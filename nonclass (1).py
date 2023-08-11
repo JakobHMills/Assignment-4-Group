@@ -347,7 +347,7 @@ def main():
                             elif doctor_initial_menu == 6:
                                 break
         
-            elif user_welcome_input == 2:          # Patient Stuff
+            elif user_welcome_input == 2:          # Patient Part
 
                 patient_initial_input = [1,2,3,4,5]
                 while True:
