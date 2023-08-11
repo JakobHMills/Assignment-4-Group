@@ -83,7 +83,7 @@ class DoctorManager:
             # split row into list of doctor properties
             split = row.split("_") 
             # create a doctor object using the doctor properties
-            doctor = Doctor(split[0],split[1],split[2],split[3],split[4],split[5].strip()) #doctor object
+            doctor = Doctor(split[0],split[1],split[2],split[3],split[4],split[5].strip())
             # add doctor object to the list of doctors
             self.doctors.append(doctor)
             # read next line
