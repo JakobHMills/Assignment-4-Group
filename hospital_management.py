@@ -1,7 +1,9 @@
-#Members: Jaeeun Lee, Jakob Mills, Donald Jans Uy
-#Date: August 11, 2023
-#Assignment 3
-#what it does: 
+# Members: Jaeeun Lee, Jakob Mills, Donald Jans Uy
+# Date: August 11, 2023
+# Assignment 3
+# What it does: The hospital management system reads doctor and patient information from .txt files and loads it into the program. 
+# Users can then display the list of all doctors/patients or display information for a single doctor/patient by searching for
+# their id or name (doctor only). Users can also add and edit a doctor/patient and save it to the .txt file.
 
 class Doctor:
     def __init__(self, doctor_id="", name="", specialization="", working_time="", qualification="", room_number=""):
@@ -12,42 +14,55 @@ class Doctor:
         self.qualification = qualification
         self.room_number = room_number
 
+    # Get doctor id
     def get_doctor_id(self): 
         return self.doctor_id
     
+    # Get name
     def get_name(self):
         return self.name
     
+    # Get specialization
     def get_specialization(self):
         return self.specialization
     
+    # Get working time
     def get_working_time(self):
         return self.working_time
     
+    # Get qualification
     def get_qualification(self):
         return self.qualification
     
+    # Get room number
     def get_room_number(self):
         return self.room_number
     
+    # Set doctor id 
     def set_doctor_id(self, new_id):
         self.doctor_id = new_id
 
+    # Set name
     def set_name(self, new_name):
         self.name = new_name
 
+    # Set specialization
     def set_specialization(self, new_specialization):
         self.specialization = new_specialization
 
+    # Set working time
     def set_working_time(self, new_working_time):
         self.working_time = new_working_time
 
+    # Set qualification
     def set_qualification(self, new_qualification):
         self.qualification = new_qualification
 
+    # Set room number
     def set_room_number(self, new_room_number):
         self.room_number = new_room_number
 
+    # Returns a string of doctor properties separated by underscores
     def __str__(self):
         return self.doctor_id + "_" + self.name + "_" + self.specialization + "_" + self.working_time + "_" + self.qualification + "_" + self.room_number
     
