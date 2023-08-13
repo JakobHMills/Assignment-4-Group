@@ -197,36 +197,47 @@ class Patient:
         self.gender = gender
         self.age = age
 
+    # Get Patient id
     def get_id(self):
         return self.id
-
+    
+    # Set Patient id
     def set_id(self, new_id):
         self.id = new_id
 
+    # Get Patient name
     def get_name(self):
         return self.name
-
+    
+    # Set Patient name
     def set_name(self, new_name):
         self.name = new_name
 
+    # Get Patient disease
     def get_disease(self):
         return self.disease
-
+    
+    # Set Patient disease
     def set_disease(self, new_disease):
         self.disease = new_disease
 
+    # Get Patient gender
     def get_gender(self):
         return self.gender
-
+    
+    # Set Patient gender
     def set_gender(self, new_gender):
         self.gender = new_gender
 
+    # Get Patient age
     def get_age(self):
         return self.age
-
+    
+    # Set Patient age
     def set_age(self, new_age):
         self.age = new_age
 
+    # Returns a string of patient variables separated by underscores
     def __str__(self):
         return f"{self.id}_{self.name}_{self.disease}_{self.gender}_{self.age}"
 
@@ -282,40 +293,47 @@ class PatientManager:
         print(format_string.format(patient_data.get_id(), patient_data.get_name(), patient_data.get_disease(), patient_data.get_gender(), patient_data.get_age()))
         
     def edit_patient_info_by_id(self):
+        # asks user to enter the patient id
         target_id = input("\nPlease enter the id of the Patient that you want to edit their information: ")
         for patient in self.patients:
             if patient.get_id() ==target_id:
-
+                # get patient information from the user and update the information
                 patient.set_name(input("Enter new Name: "))
                 patient.set_disease(input("Enter new patient disease: "))
                 patient.set_gender(input("Enter new patient gender: "))
                 patient.set_age(input("Enter new patient age: "))
-
+                # write the updated doctors list to patients.txt
                 self.write_list_of_patients_to_file()
-
+                # confirms the patient has been edited
                 print("\nPatient whose ID is", target_id ,"has been edited.")
                 return
         print("Cannot find the patient with the given ID.")
 
     def display_patient_list(self):
+        # format string for displaying columns
         format_string = "{:<5} {:<20} {:<15} {:<15} {:<15}"
-
+        # print header row
         print(format_string.format("\n"'Id','Name', 'Disease', 'Gender', 'Age'))
+        # display information for all doctors
         for patient in self.patients:
             print()        
             print(format_string.format(patient.get_id(), patient.get_name(), patient.get_disease(), patient.get_gender(), patient.get_age()))
 
     def write_list_of_patients_to_file(self):
+        # open file to write
         with open('patients.txt', 'w') as file:
             file.write("id_Name_Disease_Gender_Age\n")
             for patient in self.patients:
                 file.write(self.format_patient_Info_for_file(patient)+"\n")
         
     def add_patient_to_file(self):
+        # create new doctor by asking user for information
         new_patient = self.enter_patient_info()
+        # append new doctor to the doctors list
         self.patients.append(new_patient)
+        # write list of doctors to file
         print("Adding new patient to the list:", new_patient)
-        
+        # display confirmation message
         self.write_list_of_patients_to_file()
         print("\nPatient whose ID is", new_patient.get_id(), "has been added")
         return
@@ -332,34 +350,34 @@ def main():
         else:
  
             if  user_welcome_input == 1:
-                doctor_set_menu = [1,2,3,4,5,6]   #sets the allowed values to be inputed by the user
+                doctor_set_menu = [1,2,3,4,5,6]
                 while True:
                     doctor_initial_menu = int(input("\nDoctors Menu:\n1 - Display Doctors list\n2 - Search for doctor by ID\n3 - Search for doctor by name\n4 - Add doctor\n5 - Edit doctor info\n6 - Back to the Main Menu\n>>> "))
                     if doctor_initial_menu not in doctor_set_menu:
                             print("\nInvalid input, please indicate a correct integer\n")
                             doctor_initial_menu = int(input("\n1 - Display Doctors list\n2 - Search for doctor by ID\n3 - Search for doctor by name\n4 - Add doctor\n5 - Edit doctor info\n6 - Back to the Main Menu\n>>> "))
                     else:
-                            if doctor_initial_menu == 1:                #calls out class and method to display the list of doctors from the file
+                            if doctor_initial_menu == 1:
                                 show_doctor_list = DoctorManager()
                                 show_doctor_list.display_doctors_list()
 
-                            elif doctor_initial_menu == 2:            #calls out class and method to search a doctor with the ID as reference from the file
+                            elif doctor_initial_menu == 2:
                                 doctor_by_id = DoctorManager()
                                 doctor_by_id.search_doctor_by_id()
 
-                            elif doctor_initial_menu == 3:                #calls out class and method to search a doctor with the Doctor's name as a reference from the file
+                            elif doctor_initial_menu == 3:
                                 doctor_by_name = DoctorManager()
                                 doctor_by_name.search_doctor_by_name()
 
-                            elif doctor_initial_menu == 4:                #calls out class and method to add a doctor having the same format with the file
+                            elif doctor_initial_menu == 4:
                                 doctor_add_new = DoctorManager()
                                 doctor_add_new.add_dr_to_file()
 
-                            elif doctor_initial_menu == 5:                #calls out class and method to edit doctor details from the file
+                            elif doctor_initial_menu == 5:
                                 doctor_edit = DoctorManager()
                                 doctor_edit.edit_doctor_info()
 
-                            elif doctor_initial_menu == 6:                #breaks the loop and returns user back to the Main Menu.
+                            elif doctor_initial_menu == 6:
                                 break
         
             elif user_welcome_input == 2:          # Patient Part
