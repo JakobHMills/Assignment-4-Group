@@ -332,34 +332,34 @@ def main():
         else:
  
             if  user_welcome_input == 1:
-                doctor_set_menu = [1,2,3,4,5,6]
+                doctor_set_menu = [1,2,3,4,5,6]   #sets the allowed values to be inputed by the user
                 while True:
                     doctor_initial_menu = int(input("\nDoctors Menu:\n1 - Display Doctors list\n2 - Search for doctor by ID\n3 - Search for doctor by name\n4 - Add doctor\n5 - Edit doctor info\n6 - Back to the Main Menu\n>>> "))
                     if doctor_initial_menu not in doctor_set_menu:
                             print("\nInvalid input, please indicate a correct integer\n")
                             doctor_initial_menu = int(input("\n1 - Display Doctors list\n2 - Search for doctor by ID\n3 - Search for doctor by name\n4 - Add doctor\n5 - Edit doctor info\n6 - Back to the Main Menu\n>>> "))
                     else:
-                            if doctor_initial_menu == 1:
+                            if doctor_initial_menu == 1:                #calls out class and method to display the list of doctors from the file
                                 show_doctor_list = DoctorManager()
                                 show_doctor_list.display_doctors_list()
 
-                            elif doctor_initial_menu == 2:
+                            elif doctor_initial_menu == 2:            #calls out class and method to search a doctor with the ID as reference from the file
                                 doctor_by_id = DoctorManager()
                                 doctor_by_id.search_doctor_by_id()
 
-                            elif doctor_initial_menu == 3:
+                            elif doctor_initial_menu == 3:                #calls out class and method to search a doctor with the Doctor's name as a reference from the file
                                 doctor_by_name = DoctorManager()
                                 doctor_by_name.search_doctor_by_name()
 
-                            elif doctor_initial_menu == 4:
+                            elif doctor_initial_menu == 4:                #calls out class and method to add a doctor having the same format with the file
                                 doctor_add_new = DoctorManager()
                                 doctor_add_new.add_dr_to_file()
 
-                            elif doctor_initial_menu == 5:
+                            elif doctor_initial_menu == 5:                #calls out class and method to edit doctor details from the file
                                 doctor_edit = DoctorManager()
                                 doctor_edit.edit_doctor_info()
 
-                            elif doctor_initial_menu == 6:
+                            elif doctor_initial_menu == 6:                #breaks the loop and returns user back to the Main Menu.
                                 break
         
             elif user_welcome_input == 2:          # Patient Part
