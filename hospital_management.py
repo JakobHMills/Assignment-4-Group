@@ -390,18 +390,19 @@ def main():
                         print("\nInvalid input, please indicate a correct integer\n")
                         patient_details_input = int(input("1 - Display patients list\n2 - Search for patient by ID\n3 - Add patient\n4 - Edit patient info\n5 - Back to the Main Menu"))
                     else:
+                        #calls a class and its method to display the list of patient details inside the reference file
                         if patient_details_input == 1:
                             show_patient_list = PatientManager()
                             show_patient_list.display_patient_list()
-                        
+                        #calls a class and its method to search and display a specific patient's details according to the given patient ID. If ID isn't existing in the reference file, the program will print an error message response
                         elif patient_details_input == 2:
                             patient_by_id = PatientManager()
                             patient_by_id.search_patient_by_Id()
-
+                         #Calls a class and method to add a new patient and respective details and update the reference file
                         elif patient_details_input == 3:
                             patient_add_new = PatientManager()
                             patient_add_new.add_patient_to_file()
-
+                         #Calls a class and its method to edit an existing patient details and update the reference file. If ID isn't existing in the reference file, the program will print an error message response
                         elif patient_details_input == 4:
                             patient_edit = PatientManager()
                             patient_edit.edit_patient_info_by_id()
