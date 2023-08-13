@@ -357,26 +357,27 @@ def main():
                             print("\nInvalid input, please indicate a correct integer\n")
                             doctor_initial_menu = int(input("\n1 - Display Doctors list\n2 - Search for doctor by ID\n3 - Search for doctor by name\n4 - Add doctor\n5 - Edit doctor info\n6 - Back to the Main Menu\n>>> "))
                     else:
-                            if doctor_initial_menu == 1:
+                        #Calls the class and method to display list of doctors inside the reference file
+                            if doctor_initial_menu == 1: 
                                 show_doctor_list = DoctorManager()
                                 show_doctor_list.display_doctors_list()
-
+                        #Calls the class and method to search and display a specific doctor's details according to the given Doctor ID. If ID isn't existing in the reference file, the program will print an error message response
                             elif doctor_initial_menu == 2:
                                 doctor_by_id = DoctorManager()
                                 doctor_by_id.search_doctor_by_id()
-
+                        #Calls the class and method to search and display a specific doctor's details according to the given Doctor name. If name isn't existing in the reference file, the program will print an error message response
                             elif doctor_initial_menu == 3:
                                 doctor_by_name = DoctorManager()
                                 doctor_by_name.search_doctor_by_name()
-
+                        #Calls a class and method to add a new doctor details and update the reference file
                             elif doctor_initial_menu == 4:
                                 doctor_add_new = DoctorManager()
                                 doctor_add_new.add_dr_to_file()
-
+                       #Calls a class and method to edit an existing doctor details and update the reference file. If ID isn't existing in the reference file, the program will print an error message response
                             elif doctor_initial_menu == 5:
                                 doctor_edit = DoctorManager()
                                 doctor_edit.edit_doctor_info()
-
+                        #Breaks the loop and returns user to Main Menu
                             elif doctor_initial_menu == 6:
                                 break
         
@@ -404,10 +405,10 @@ def main():
                         elif patient_details_input == 4:
                             patient_edit = PatientManager()
                             patient_edit.edit_patient_info_by_id()
-                        
+                #Breaks the loop and returns user to Main Menu          
                         elif patient_details_input == 5:
                             break
-
+            #Program sends a goodbye message and terminates the program 
             elif user_welcome_input == 3:
                 print("Thanks for using the program. Bye!")
                 break
